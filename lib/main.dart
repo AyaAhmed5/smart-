@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled9/finger.dart';
 import 'package:untitled9/qr.dart';
@@ -8,9 +9,16 @@ import 'package:untitled9/welcom.dart';
 
 import 'authorization.dart';
 import 'face.dart';
+import 'firebase_options.dart';
 import 'login.dart';
+import 'new.dart';
 
-void main() {
+Future<void> main()  async {
+
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   runApp(const MyApp());
 }
 
@@ -27,12 +35,12 @@ class MyApp extends StatelessWidget {
         "/" :  (context) => welcom(),
         "/login" : (context) => login(),
         "/sign up" :  (context) =>  signup(),
-        "/qrpage" :  (context) =>  QRpage(),
+        "/qrpage" :  (context) =>  QRScanPage(),
         "/autho" :  (context) =>  autho(),
         "/table" :  (context) =>  TablePage(),
         "/face" :  (context) =>  FaceRecogenation(),
-        "/finger" :  (context) =>  finger(),
-        "/scan":(context)=>ScanScreen()
+        "/finger" :  (context) =>  FingerprintAuthPage(),
+        // "/scan":(context)=>MyHomePage()
       },
     );
   }
