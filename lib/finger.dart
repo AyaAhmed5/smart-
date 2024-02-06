@@ -235,7 +235,7 @@ class _FingerprintAuthPageState extends State<FingerprintAuthPage> {
           children: [
             // Add your image here
             Image.asset(
-              'assets/images/finooo.webp',
+              'assets/images/fingerfinal.jpg',
               width: 300, // Adjust the width as needed
               height: 150, // Adjust the height as needed
             ),
